@@ -3,7 +3,7 @@ Generative adversarial Network personal library
 The goal of this project is to create my own library to easily create and train Generative adversarial Network.
 
 
-## - Requirement: 
+## Requirement: 
 - tensorflow version 2.0 and above
 - numpy
 - datetime
@@ -67,12 +67,12 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - ep (int): Current eppoch; default None
 
 5) train(x_train,epoch,batch_size=1024,outputTr=None,evalStep=10,pathSave=None): train the gan
-x_train (numpy.ndarray): training data
-epoch (int): Number of training epochs 
-batch_size (int): size of training batch; default 1024
-outputTr (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
-evalStep (int): Number of Epoch before evaluate the model; default 10
-pathSave (str): path where the model are saved every evalStep epoch; default None, the gan is not saved
+- x_train (numpy.ndarray): training data
+- epoch (int): Number of training epochs 
+- batch_size (int): size of training batch; default 1024
+- outputTr (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
+- evalStep (int): Number of Epoch before evaluate the model; default 10
+- pathSave (str): path where the model are saved every evalStep epoch; default None, the gan is not saved
 
 
 
