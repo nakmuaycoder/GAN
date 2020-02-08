@@ -29,7 +29,7 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - Deep Convolutional Generative Adversarial Network: DCGAN
 - Wasserstein GAN: WCGAN
 - Conditional Generative Adversarial Network: cGAN
-- LSGAN
+- Least-squares Generative Adversarial Network: LSGAN
 
 ## Gan Methods and Attributes
 
