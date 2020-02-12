@@ -30,6 +30,7 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - Wasserstein GAN: WCGAN
 - Conditional Generative Adversarial Network: cGAN
 - Least-squares Generative Adversarial Network: LSGAN
+- Auxiliary classifier Generative Adversarial Network: ACGAN
 
 ## Gan Methods and Attributes
 
@@ -66,13 +67,20 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - viewFunction (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
 - ep (int): Current eppoch; default None
 
-5) train(x_train,epoch,batch_size=1024,outputTr=None,evalStep=10,pathSave=None): train the gan
+5) train(x_train,epoch,batch_size=1024,outputTr=None,evalStep=10,pathSave=None,n_critic = 5,clip_value = 0.01): train the gan
 - x_train (numpy.ndarray): training data
 - epoch (int): Number of training epochs 
 - batch_size (int): size of training batch; default 1024
 - outputTr (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
 - evalStep (int): Number of Epoch before evaluate the model; default 10
 - pathSave (str): path where the model are saved every evalStep epoch; default None, the gan is not saved
+- n_critic (int)(WGAN only): Number of discriminator training strep before training the generator;  default  5
+- clip_value (float)(WGAN only): Bound of discriminator weights, after each training step each weight are updated to be between clip_value bound; default 0.01
 
+
+6) DisOutput(batchsize,true=1,false=None): return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
+- batchsize (int): size of batch
+-true (int): The value returned by the discriminator when the input is real; default 1
+-false (int):The value returned by the discriminator when the input is fake; default None
 
 
