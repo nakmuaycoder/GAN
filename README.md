@@ -64,14 +64,14 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - xtest (numpy.ndarray): A generator input; default None. If None the output is generate from random inputs 
 - batchSize (int): if xtest is None; number of outputs to generate; default 10
 - returnArray (boolean): Return the result of the generator as numpy.ndarray; default True
-- viewFunction (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
+- viewFunction (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default None
 - ep (int): Current eppoch; default None
 
 5) train(x_train,epoch,batch_size=1024,outputTr=None,evalStep=10,pathSave=None,n_critic = 5,clip_value = 0.01): train the gan
 - x_train (numpy.ndarray): training data
 - epoch (int): Number of training epochs 
 - batch_size (int): size of training batch; default 1024
-- outputTr (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default  =None
+- outputTr (function): Function used to transform the output of the generator in an other format (ex jpg, mp3...); default None
 - evalStep (int): Number of Epoch before evaluate the model; default 10
 - pathSave (str): path where the model are saved every evalStep epoch; default None, the gan is not saved
 - n_critic (int)(WGAN only): Number of discriminator training strep before training the generator;  default  5
