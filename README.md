@@ -1,4 +1,4 @@
-# GAN [work in progress]
+# Generative adversarial Network (GAN) [work in progress]
 Generative adversarial Network personal library
 The goal of this project is to create my own library to easily create and train Generative adversarial Network.
 
@@ -8,6 +8,17 @@ The goal of this project is to create my own library to easily create and train 
 - numpy
 - datetime
 
+
+## About GAN
+
+[link here](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/tree/master/Keras/GAN)
+
+## Implemented GAN 
+- Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN.ipynb)
+- Wasserstein GAN: WGAN [mnist WGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN.ipynb)
+- Conditional Generative Adversarial Network: cGAN [mnist cGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGAN.ipynb)
+- Least-squares Generative Adversarial Network: LSGAN: [mnist LSGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN.ipynb)
+- Auxiliary classifier Generative Adversarial Network: ACGAN
 
 
 
@@ -20,17 +31,10 @@ Create a GAN instance using 4 parametres:
 
 
 ```python
-from gan import WCGAN, wasserstein_loss
+from gan2 import WCGAN, wasserstein_loss
 gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSprop(lr=5e-5),GanOptimizer=RMSprop(lr=5e-5))
 ```
 
-
-## Implemented GAN
-- Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN.ipynb)
-- Wasserstein GAN: WGAN [mnist WGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN.ipynb)
-- Conditional Generative Adversarial Network: cGAN [mnist cGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGAN.ipynb)
-- Least-squares Generative Adversarial Network: LSGAN: [mnist LSGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN.ipynb)
-- Auxiliary classifier Generative Adversarial Network: ACGAN
 
 ## Gan Methods and Attributes
 
