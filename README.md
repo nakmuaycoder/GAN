@@ -26,9 +26,9 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 
 
 ## Implemented GAN
-- Deep Convolutional Generative Adversarial Network: DCGAN
+- Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN.ipynb)
 - Wasserstein GAN: WGAN [mnist WGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN.ipynb)
-- Conditional Generative Adversarial Network: cGAN
+- Conditional Generative Adversarial Network: cGAN [mnist cGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGAN.ipynb)
 - Least-squares Generative Adversarial Network: LSGAN: [mnist LSGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN.ipynb)
 - Auxiliary classifier Generative Adversarial Network: ACGAN
 
