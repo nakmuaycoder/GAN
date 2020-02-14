@@ -13,7 +13,7 @@ The goal of this project is to create my own library to easily create and train 
 
 https://en.wikipedia.org/wiki/Generative_adversarial_network
 
-
+Gan implemented and tutorial here:<br>
 https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/README.md
 
 ## Implemented GAN 
