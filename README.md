@@ -11,7 +11,10 @@ The goal of this project is to create my own library to easily create and train 
 
 ## About GAN
 
-[My repo about gan](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/tree/master/Keras/GAN)
+https://en.wikipedia.org/wiki/Generative_adversarial_network
+
+
+https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/README.md
 
 ## Implemented GAN 
 - Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuayFarang/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN.ipynb)
