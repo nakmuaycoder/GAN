@@ -22,6 +22,9 @@ https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/REA
 - Conditional Generative Adversarial Network: cGAN [mnist cGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGan-V2.ipynb)
 - Least-squares Generative Adversarial Network LSGAN: [mnist LSGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN-V2.ipynb)
 - Auxiliary classifier Generative Adversarial Network ACGAN: [mnist ACGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/ACGAN-V2.ipynb)
+- InfoGAN: [mnist InfoGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/InfoGAN-V2.ipynb)
+
+- StackedGAN
 
 
 
