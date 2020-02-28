@@ -8,15 +8,15 @@ The goal of this project is to create my own library to easily create and train 
 This program is made for quickly instantiate train and save a Generative Adversial Network ([GAN](https://en.wikipedia.org/wiki/Generative_adversarial_network)).<br>
 
 
+## Installation:
 
-## Requirement: 
-- tensorflow version 2.0 and above
-- numpy
-- PIL
-
+```bash
+cd /GAN/
+pip install -r requirements.txt
+```
 
 ## Tutorials
-Gan implementation and tutorials are available here:<br>
+Gan tutorials are available here:<br>
 https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 
 
