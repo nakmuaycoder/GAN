@@ -79,22 +79,37 @@ gan = DCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 
 ...
 ### Methods
-1) ```saveGan(path)```: Save the generator, evaluationInpt and the discriminator and create config.json
+```python
+gan.saveGan(path)
+```
+Save the generator, evaluationInpt and the discriminator and create config.json
 - **path (str):** directory store the gan
 
 
-2)  ```loadGAN(configFile=configFile)``` : Load all the attributes of the gan, and the weights of the generator and discriminator.
+```python
+gan.loadGAN(configFile=configFile)
+```
+Load all the attributes of the gan, and the weights of the generator and discriminator.
 - **configFile (str):** path to configfile.json
 
 
-3) ```rdmGenInput(batchSize)``` (numpy.ndarray): Create a sample of generator input
+```python
+gan.rdmGenInput(batchSize)
+``` 
+(numpy.ndarray) Create a sample of generator input
 - **batchSize (int):** number of record to generate
 
 
-4) ```generateBatchEval(batchSize)``` (numpy.ndarray or list of numpy.ndarray): Set evaluationInpt
+```python
+gan.generateBatchEval(batchSize)
+```
+(numpy.ndarray or list of numpy.ndarray): Set evaluationInpt
 - **batchSize (int):** number of record to generate default value 16
 
-5) ```GenerateOutputs(xtest=None,batchSize=16,returnArray=True,dataViewer=None,save=False,View=True,epoch=None)``` (numpy.ndarray): Return a generator output
+```python
+gan.GenerateOutputs(xtest=None,batchSize=16,returnArray=True,dataViewer=None,save=False,View=True,epoch=None)
+```
+(numpy.ndarray): Return a generator output
 - **xtest (numpy.ndarray or iterable of numpy.ndarray):** A generator input; default value None, the output is generate from random inputs 
 - **batchSize (int):** if xtest is None; number of outputs to generate; default 10
 - **returnArray (boolean):** Return the result of the generator as numpy.ndarray; default True
@@ -104,7 +119,10 @@ gan = DCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - **View (boolean):** Display the dataViewer outputs; Default False
 
 
-6) ```train(x_train,epoch,batch_size=1024,evalStep=10,pathSave=None,dataViewer=None)``` : train the gan
+```python
+gan.train(x_train,epoch,batch_size=1024,evalStep=10,pathSave=None,dataViewer=None)
+```
+train the gan
 - **x_train (numpy.ndarray or iterable of numpy.ndarray):** training data
 - **epoch (int):** Number of training epochs 
 - **batch_size (int):** size of training batch; default 1024
@@ -115,7 +133,10 @@ gan = DCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - **dataViewer (GAN.utils.dataViewer):** A dataViewer object used transform, visualize and save generator's outputs in an other format (ex jpg, mp3...); default None
 
 
-7) ```DisOutput(batchsize,lbl,true=1,false=None,**args)``` : return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
+```python
+gan.DisOutput(batchsize,lbl,true=1,false=None,**args)
+```
+return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
 - **batchsize (int):** size of batch
 - **true (int):** The value returned by the discriminator when the input is real; default 1
 - **false (int):** The value returned by the discriminator when the input is fake; default None
