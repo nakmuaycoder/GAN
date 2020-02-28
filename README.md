@@ -20,18 +20,6 @@ Gan implementation and tutorials are available here:<br>
 https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 
 
-
-## Implemented GAN 
-- Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN-V2.ipynb)
-- Wasserstein GAN: WGAN [mnist WGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN-V2.ipynb)
-- Conditional Generative Adversarial Network: cGAN [mnist cGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGan-V2.ipynb)
-- Least-squares Generative Adversarial Network LSGAN: [mnist LSGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN-V2.ipynb)
-- Auxiliary classifier Generative Adversarial Network ACGAN: [mnist ACGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/ACGAN-V2.ipynb)
-- InfoGAN: [mnist InfoGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/InfoGAN-V2.ipynb)
-
-- StackedGAN
-
-
 ## Package architecture
 
 ### utils
@@ -43,14 +31,29 @@ This script contain different usefull objects for deal with the GAN:
 
 ### Loss
 
-Implementation of the custom loss function used for GAN's training.
+An implementation of the custom loss functions used for GAN's training.
 - **mi_loss**
 - **wasserstein_loss**
 
 ### GAN module
-- **SimpleGAN:** Single input generator
-- **LabelGAN:** Double
-- **AttributeGAN:** Disentangled Representation GAN
+#### SimpleGAN: Single input generator
+
+- DCGAN: Deep Convolutional Generative Adversarial Network [mnist DCGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN-V2.ipynb)
+
+- LSGAN: Least-squares Generative Adversarial Network [mnist LSGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/LSGAN-V2.ipynb)
+
+- WGAN: Wasserstein GAN [mnist WGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN-V2.ipynb)
+
+#### LabelGAN: Gan with labelized data
+
+- cGAN: Conditional Generative Adversarial Network [mnist cGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGan-V2.ipynb)
+
+- ACGAN: Auxiliary classifier Generative Adversarial Network [mnist ACGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/ACGAN-V2.ipynb)
+
+#### AttributeGAN: Disentangled Representation GAN
+
+- InfoGAN: [mnist InfoGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/InfoGAN-V2.ipynb)
+- StackedGAN
 
 
 ## Gan instantiation
@@ -71,11 +74,26 @@ gan = DCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 
 
 ### Attributes
-- **evaluationInpt (numpy.ndarray):** or a list of numpy.ndarray used for evaluation of the generator over the training epochs
-- **generator (tensorflow.keras.models):** the generator model
-- **discriminator (tensorflow.keras.models):** the discriminator model
-- **adversial (tensorflow.keras.models):** discriminator(generator())
-- **InitialEpoch (int):** Number of training step
+```python
+gan.evaluationInpt
+```
+**(numpy.ndarray or a iterable of numpy.ndarray):** a batch of generator input used for evaluate the generator output over the training epoch
+```python
+gan.generator
+```
+**(tensorflow.keras.models):** the generator model
+```python
+gan.discriminator
+```
+**(tensorflow.keras.models):** the discriminator model
+```python
+gan.adversial
+```
+**(tensorflow.keras.models):** discriminator(generator())
+```python
+gan.InitialEpoch
+```
+**(int):** Number of training step
 
 ...
 ### Methods
