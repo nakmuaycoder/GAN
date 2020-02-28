@@ -98,7 +98,6 @@ gan.InitialEpoch
 ```
 **(int):** Number of training step
 
-...
 ### Methods
 ```python
 gan.saveGan(path)
