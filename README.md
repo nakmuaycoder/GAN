@@ -15,9 +15,10 @@ This program is made for quickly instantiate train and save a Generative Adversi
 - PIL
 
 
-## Example
+## Tutorials
 Gan implementation and tutorial here:<br>
 https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
+
 
 
 ## Implemented GAN 
@@ -31,9 +32,29 @@ https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 - StackedGAN
 
 
+## Package architecture
+
+### utils
+
+This script contain different usefull objects for deal with the GAN:
+- createGif: a function creating GIF showing the evolution of the generator output over the training epochs
+- dataViewer: an object used to visualise and save as file a generator output.
+- load_GAN: function loading a saved GAN object.
+
+### Loss
+
+Implementation of the custom loss function used for GAN's training.
+- mi_loss
+- wasserstein_loss
+
+### GAN module
+- SimpleGAN: Single input generator
+- LabelGAN: Double
+- AttributeGAN: Disentangled Representation GAN
+
 
 ## Gan instantiation
-Create a GAN instance using 4 parametres:
+A GAN instance requiere 4 parametres:
 - Generator (tensorflow.keras.models): From a random input will generate fake data
 - Discriminator (tensorflow.keras.models): A binary classifier for fake/original data
 - DiscrOptimizer (tensorflow.keras.optimizers): optimizer for the Discriminator
@@ -41,8 +62,8 @@ Create a GAN instance using 4 parametres:
 
 
 ```python
-from gan2 import WCGAN, wasserstein_loss
-gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSprop(lr=5e-5),GanOptimizer=RMSprop(lr=5e-5))
+from GAN.GAN.SimpleGAN import DCGAN
+gan = DCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSprop(lr=2e-4, decay=6e-8),GanOptimizer=RMSprop(lr=1e-4, decay=3e-8))
 ```
 
 
@@ -62,7 +83,7 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 - **path (str):** directory store the gan
 
 
-2)  ```loadGAN(configFile=configFile)``` : Load all the attributes of the gan
+2)  ```loadGAN(configFile=configFile)``` : Load all the attributes of the gan, and the weights of the generator and discriminator.
 - **configFile (str):** path to configfile.json
 
 
@@ -71,29 +92,32 @@ gan = WCGAN(generator=generator,discriminator=discriminator,DiscrOptimizer=RMSpr
 
 
 4) ```generateBatchEval(batchSize)``` (numpy.ndarray or list of numpy.ndarray): Set evaluationInpt
-- **batchSize (int):** number of record to generate
+- **batchSize (int):** number of record to generate default value 16
 
-5) ```GenerateOutputs(xtest=None,batchSize=10,returnArray=True,viewFunction=None,ep=None)``` (numpy.ndarray): Use the generator to generate an output
-- **xtest (numpy.ndarray):** A generator input; default None. If None the output is generate from random inputs 
+5) ```GenerateOutputs(xtest=None,batchSize=16,returnArray=True,dataViewer=None,save=False,View=True,epoch=None)``` (numpy.ndarray): Return a generator output
+- **xtest (numpy.ndarray or iterable of numpy.ndarray):** A generator input; default value None, the output is generate from random inputs 
 - **batchSize (int):** if xtest is None; number of outputs to generate; default 10
 - **returnArray (boolean):** Return the result of the generator as numpy.ndarray; default True
-- **viewFunction (function):** Function used to transform the output of the generator in an other format (ex jpg, mp3...); default None
-- **ep (int):** Current eppoch; default None
+- **dataViewer (GAN.utils.dataViewer):** A dataViewer object used transform, visualize and save generator's outputs in an other format (ex jpg, mp3...); default None
+- **epoch (int):** Current eppoch; default None
+- **save (boolean):** Save the dataViewer outputs; Default False
+- **View (boolean):** Display the dataViewer outputs; Default False
 
-6) ```train(x_train,epoch,batch_size=1024,outputTr=None,evalStep=(10,10),pathSave=None,n_critic = 5,clip_value = 0.01)``` : train the gan
+
+6) ```train(x_train,epoch,batch_size=1024,evalStep=10,pathSave=None,dataViewer=None)``` : train the gan
 - **x_train (numpy.ndarray or iterable of numpy.ndarray):** training data
 - **epoch (int):** Number of training epochs 
 - **batch_size (int):** size of training batch; default 1024
-- **outputTr (function):** Function used to transform the output of the generator in an other format (ex jpg, mp3...); default None
 - **evalStep (evalGen,evalSave) (iterable or int):** Number of Epoch before evaluate the model on evaluationInpt (evalGen) and number of epoch before save the GAN (evalSave), if int evalStep=(evalStep,evalStep)  ; default (10,10)
 - **pathSave (str):** path where the model are saved every evalStep epoch; default None, the gan is not saved
 - **n_critic (int) (WGAN _only)_:** Number of discriminator training strep before training the generator;  default  5
 - **clip_value (float) (WGAN _only)_:** Bound of discriminator weights, after each training step each weight are updated to be between clip_value bound; default 0.01
+- **dataViewer (GAN.utils.dataViewer):** A dataViewer object used transform, visualize and save generator's outputs in an other format (ex jpg, mp3...); default None
 
 
-7) ```DisOutput(batchsize,true=1,false=None)``` : return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
+7) ```DisOutput(batchsize,lbl,true=1,false=None,**args)``` : return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
 - **batchsize (int):** size of batch
 - **true (int):** The value returned by the discriminator when the input is real; default 1
 - **false (int):** The value returned by the discriminator when the input is fake; default None
-
+- **args :** Other arguments (X vector(s) for GAN with Disentangled Representation)
 
