@@ -37,28 +37,28 @@ https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 ### utils
 
 This script contain different usefull objects for deal with the GAN:
-- createGif: a function creating GIF showing the evolution of the generator output over the training epochs
-- dataViewer: an object used to visualise and save as file a generator output.
-- load_GAN: function loading a saved GAN object.
+- **createGif:** a function creating GIF showing the evolution of the generator output over the training epochs
+- **dataViewer:** an object used to visualise and save as file a generator output.
+- **load_GAN:** function loading a saved GAN object.
 
 ### Loss
 
 Implementation of the custom loss function used for GAN's training.
-- mi_loss
-- wasserstein_loss
+- **mi_loss**
+- **wasserstein_loss**
 
 ### GAN module
-- SimpleGAN: Single input generator
-- LabelGAN: Double
-- AttributeGAN: Disentangled Representation GAN
+- **SimpleGAN:** Single input generator
+- **LabelGAN:** Double
+- **AttributeGAN:** Disentangled Representation GAN
 
 
 ## Gan instantiation
 A GAN instance requiere 4 parametres:
-- Generator (tensorflow.keras.models): From a random input will generate fake data
-- Discriminator (tensorflow.keras.models): A binary classifier for fake/original data
-- DiscrOptimizer (tensorflow.keras.optimizers): optimizer for the Discriminator
-- GanOptimizer (tensorflow.keras.optimizers): optimizer for the Adversial model
+- **Generator (tensorflow.keras.models):** From a random input will generate fake data
+- **Discriminator (tensorflow.keras.models):** A binary classifier for fake/original data
+- **DiscrOptimizer (tensorflow.keras.optimizers):** optimizer for the Discriminator
+- **GanOptimizer (tensorflow.keras.optimizers):** optimizer for the Adversial model
 
 
 ```python
@@ -136,7 +136,7 @@ train the gan
 ```python
 gan.DisOutput(batchsize,lbl,true=1,false=None,**args)
 ```
-return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true value and 50% of fake value
+**Return a batch of size batchsize of discriminator outputs. If ```false=None``` this method return a full batch of true value. Otherwhile it return an array of 50% true values and 50% of fake values**
 - **batchsize (int):** size of batch
 - **true (int):** The value returned by the discriminator when the input is real; default 1
 - **false (int):** The value returned by the discriminator when the input is fake; default None
