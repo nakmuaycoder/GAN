@@ -1,1 +1,6 @@
 tensorflow>= 2.0
+numpy
+PIL
+imageio
+matplotlib
+abc
