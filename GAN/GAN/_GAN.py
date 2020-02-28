@@ -4,7 +4,6 @@ Gan model; create easily a generative adversial network.
 
 import os
 import tensorflow
-assert tensorflow.__version__[0]=="2", "tensorflow version must be > 2.0"
 from tensorflow.keras.layers import Input
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.optimizers import Adam, RMSprop
