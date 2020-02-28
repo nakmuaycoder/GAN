@@ -20,23 +20,25 @@ Gan implementation and tutorials are available here:<br>
 https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 
 
-## Package architecture
+## Content
 
-### utils
+### GAN.utils
 
 This script contain different usefull objects for deal with the GAN:
 - **createGif:** a function creating GIF showing the evolution of the generator output over the training epochs
 - **dataViewer:** an object used to visualise and save as file a generator output.
 - **load_GAN:** function loading a saved GAN object.
 
-### Loss
+### GAN.Loss
 
 An implementation of the custom loss functions used for GAN's training.
 - **mi_loss**
 - **wasserstein_loss**
 
-### GAN module
-#### SimpleGAN: Single input generator
+### GAN.GAN
+Gan implementation
+
+#### GAN.GAN.SimpleGAN: Single input generator
 
 - DCGAN: Deep Convolutional Generative Adversarial Network [mnist DCGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN-V2.ipynb)
 
@@ -44,17 +46,19 @@ An implementation of the custom loss functions used for GAN's training.
 
 - WGAN: Wasserstein GAN [mnist WGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/WGAN-V2.ipynb)
 
-#### LabelGAN: Gan with labelized data
+#### GAN.GAN.LabelGAN: Gan with labelized data
 
 - cGAN: Conditional Generative Adversarial Network [mnist cGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/cGan-V2.ipynb)
 
 - ACGAN: Auxiliary classifier Generative Adversarial Network [mnist ACGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/ACGAN-V2.ipynb)
 
-#### AttributeGAN: Disentangled Representation GAN
+#### GAN.GAN.AttributeGAN: Disentangled Representation GAN
 
 - InfoGAN: [mnist InfoGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/InfoGAN-V2.ipynb)
 - StackedGAN
 
+#### GAN.GAN.CrossDomainGAN: Cross Domain GAN
+- CycleGAN
 
 ## Gan instantiation
 A GAN instance requiere 4 parametres:
@@ -100,34 +104,34 @@ gan.InitialEpoch
 ```python
 gan.saveGan(path)
 ```
-Save the generator, evaluationInpt and the discriminator and create config.json
+**Save the generator, evaluationInpt and the discriminator and create config.json**
 - **path (str):** directory store the gan
 
 
 ```python
 gan.loadGAN(configFile=configFile)
 ```
-Load all the attributes of the gan, and the weights of the generator and discriminator.
+**Load all the attributes of the gan, and the weights of the generator and discriminator.**
 - **configFile (str):** path to configfile.json
 
 
 ```python
 gan.rdmGenInput(batchSize)
 ``` 
-(numpy.ndarray) Create a sample of generator input
+**(numpy.ndarray) Create a sample of generator input**
 - **batchSize (int):** number of record to generate
 
 
 ```python
 gan.generateBatchEval(batchSize)
 ```
-(numpy.ndarray or list of numpy.ndarray): Set evaluationInpt
+**(numpy.ndarray or list of numpy.ndarray): Set evaluationInpt**
 - **batchSize (int):** number of record to generate default value 16
 
 ```python
 gan.GenerateOutputs(xtest=None,batchSize=16,returnArray=True,dataViewer=None,save=False,View=True,epoch=None)
 ```
-(numpy.ndarray): Return a generator output
+**(numpy.ndarray): Return a generator output**
 - **xtest (numpy.ndarray or iterable of numpy.ndarray):** A generator input; default value None, the output is generate from random inputs 
 - **batchSize (int):** if xtest is None; number of outputs to generate; default 10
 - **returnArray (boolean):** Return the result of the generator as numpy.ndarray; default True
@@ -140,7 +144,7 @@ gan.GenerateOutputs(xtest=None,batchSize=16,returnArray=True,dataViewer=None,sav
 ```python
 gan.train(x_train,epoch,batch_size=1024,evalStep=10,pathSave=None,dataViewer=None)
 ```
-train the gan
+**train the gan**
 - **x_train (numpy.ndarray or iterable of numpy.ndarray):** training data
 - **epoch (int):** Number of training epochs 
 - **batch_size (int):** size of training batch; default 1024
