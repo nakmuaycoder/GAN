@@ -24,7 +24,6 @@ https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 
 ### GAN.utils
 
-This script contain different usefull objects for deal with the GAN:
 - **createGif:** a function creating GIF showing the evolution of the generator output over the training epochs
 - **dataViewer:** an object used to visualise and save as file a generator output.
 - **load_GAN:** function loading a saved GAN object.
