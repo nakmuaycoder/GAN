@@ -3,18 +3,22 @@ Generative adversarial Network personal library
 The goal of this project is to create my own library to easily create and train Generative adversarial Network.
 
 
+## Objective
+
+This program is made for quickly instantiate train and save a Generative Adversial Network ([GAN](https://en.wikipedia.org/wiki/Generative_adversarial_network)).<br>
+
+
+
 ## Requirement: 
 - tensorflow version 2.0 and above
 - numpy
-- datetime
+- PIL
 
 
-## About GAN
-
-https://en.wikipedia.org/wiki/Generative_adversarial_network
-
+## Example
 Gan implementation and tutorial here:<br>
-https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/README.md
+https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
+
 
 ## Implemented GAN 
 - Deep Convolutional Generative Adversarial Network: DCGAN [mnist DCGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/DCGAN-V2.ipynb)
