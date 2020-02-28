@@ -16,7 +16,7 @@ This program is made for quickly instantiate train and save a Generative Adversi
 
 
 ## Tutorials
-Gan implementation and tutorial here:<br>
+Gan implementation and tutorials are available here:<br>
 https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/
 
 
