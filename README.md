@@ -54,7 +54,7 @@ Gan implementation
 #### GAN.GAN.AttributeGAN: Disentangled Representation GAN
 
 - InfoGAN: [mnist InfoGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/InfoGAN-V2.ipynb)
-- StackedGAN
+- StackedGAN [mnist StackedGAN](https://github.com/nakmuaycoder/Testing-on-minst-MNIST/blob/master/Keras/GAN/StackedGAN-V2.ipynb)
 
 #### GAN.GAN.CrossDomainGAN: Cross Domain GAN
 - CycleGAN
