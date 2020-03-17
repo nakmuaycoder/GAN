@@ -340,29 +340,4 @@ class StackedGAN(object):
                     #Save the GAN
                     self.saveGan(pathSave)        
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            
-        
-        
-
-
-
-
-
 
